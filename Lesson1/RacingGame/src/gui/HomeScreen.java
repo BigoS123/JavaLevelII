@@ -18,17 +18,28 @@ import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+
+import dao.UserDao;
+import model.User;
+import util.MySQLAccess;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class HomeScreen {
 
-	//TODO 1 stworzyc klasy z obiektami wykorzystywanymi w grze z polami
-	//TODO 2 stworzyc gettery i settery
-	//TODO 3 stworzyc w oddzielnych klasach szablony ekranow
+	//TODO 1 stworzyc ekran logowania
+	//TODO 2 pobierac wartosci z ekranu logowania
+	//TODO 3 przygotowac model klasy car
+	//TODO 4 dodac tabele na bazie car
+	//TODO 5 przygotowac na msql kilka dowolnych zapytan do tabeli car
+	
+	
+	
 	
 	private JFrame frame;
+	private JTextField textLogin;
 
 	/**
 	 * Launch the application.
@@ -57,6 +68,7 @@ public class HomeScreen {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 538, 323);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,9 +98,37 @@ public class HomeScreen {
 		btnNewButton.setBounds(350, 126, 147, 23);
 		frame.getContentPane().add(btnNewButton);
 		
+		JButton btnAddUser = new JButton("Add user");
+		btnAddUser.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				addUser();
+				
+			}
+		});
+		btnAddUser.setBounds(80, 126, 89, 23);
+		frame.getContentPane().add(btnAddUser);
+		
+		textLogin = new JTextField();
+		textLogin.setBounds(80, 93, 137, 20);
+		frame.getContentPane().add(textLogin);
+		textLogin.setColumns(10);
+		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("D:\\Korepetycje\\git\\JavaLevelII\\Lesson1\\RacingGame\\img\\dusk-drive_dynamic_feature.png"));
 		label.setBounds(0, 0, 516, 282);
 		frame.getContentPane().add(label);
+	}
+	
+	
+	public void addUser(){
+		UserDao userDao = new UserDao();
+		
+		User user1 = new User();
+		user1.setLogin(textLogin.getText());
+		user1.setPassword("Andrzej");
+	
+		userDao.addUser(user1);
+		
 	}
 }

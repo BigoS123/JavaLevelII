@@ -103,7 +103,7 @@ public class UpgradeScreen {
 		textField.setColumns(10);
 		
 		JLabel lblNameYourCar = new JLabel("Name Your Car");
-		lblNameYourCar.setBounds(122, 10, 84, 25);
+		lblNameYourCar.setBounds(86, 10, 120, 25);
 		frame.getContentPane().add(lblNameYourCar);
 		
 		JLabel lblSetBalanceBetween = new JLabel("Set Balance Between Speed and Acceleration");

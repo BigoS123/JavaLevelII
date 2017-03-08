@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 
 public class RaceScreen {
 
@@ -39,16 +40,21 @@ public class RaceScreen {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 648, 409);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		JLabel lblRaceProgress = new JLabel("Race Progress");
+		lblRaceProgress.setBounds(10, 345, 414, 14);
+		frame.getContentPane().add(lblRaceProgress);
+		
 		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(10, 213, 414, 24);
+		progressBar.setBounds(10, 330, 612, 29);
 		frame.getContentPane().add(progressBar);
 		
-		JLabel lblRaceProgress = new JLabel("Race Progress");
-		lblRaceProgress.setBounds(10, 188, 414, 14);
-		frame.getContentPane().add(lblRaceProgress);
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("D:\\Korepetycje\\git\\JavaLevelII\\Lesson1\\RacingGame\\img\\1280px-2012_WTCC_Race_of_Japan_(Race_1)_opening_lap.png"));
+		label.setBounds(0, 0, 640, 377);
+		frame.getContentPane().add(label);
 	}
 }
