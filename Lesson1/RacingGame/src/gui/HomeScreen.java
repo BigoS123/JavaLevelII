@@ -29,7 +29,6 @@ import java.awt.event.ActionEvent;
 
 public class HomeScreen {
 
-	//TODO 1 stworzyc ekran logowania
 	//TODO 2 pobierac wartosci z ekranu logowania
 	//TODO 3 przygotowac model klasy car
 	//TODO 4 dodac tabele na bazie car
@@ -39,7 +38,6 @@ public class HomeScreen {
 	
 	
 	private JFrame frame;
-	private JTextField textLogin;
 
 	/**
 	 * Launch the application.
@@ -70,7 +68,7 @@ public class HomeScreen {
 	private void initialize() {
 
 		frame = new JFrame();
-		frame.setBounds(100, 100, 538, 323);
+		frame.setBounds(100, 100, 531, 320);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -87,48 +85,51 @@ public class HomeScreen {
 		frame.getContentPane().add(label_1);
 		
 		JButton btnNewGame = new JButton("Race");
-		btnNewGame.setBounds(350, 92, 147, 23);
+		btnNewGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RaceScreen.main(null);
+			}
+		});
+		btnNewGame.setBounds(348, 74, 147, 23);
 		frame.getContentPane().add(btnNewGame);
 		
-		JButton btnNewButton = new JButton("Upgrade car");
+		JButton btnNewButton = new JButton("Wrokshop");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setBounds(350, 126, 147, 23);
+		btnNewButton.setBounds(348, 176, 147, 23);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnAddUser = new JButton("Add user");
-		btnAddUser.addActionListener(new ActionListener() {
+		JButton btnNewButton_1 = new JButton("Shop with upgrades");
+		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				addUser();
+				UpgradeScreen.main(null);
 				
 			}
 		});
-		btnAddUser.setBounds(80, 126, 89, 23);
-		frame.getContentPane().add(btnAddUser);
+		btnNewButton_1.setBounds(350, 142, 145, 23);
+		frame.getContentPane().add(btnNewButton_1);
 		
-		textLogin = new JTextField();
-		textLogin.setBounds(80, 93, 137, 20);
-		frame.getContentPane().add(textLogin);
-		textLogin.setColumns(10);
+		JButton btnNewButton_2 = new JButton("User profile");
+		btnNewButton_2.setBounds(350, 108, 145, 23);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Log screen");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				LoggingScreen.main(null);
+				
+			}
+		});
+		btnNewButton_3.setBounds(348, 210, 147, 23);
+		frame.getContentPane().add(btnNewButton_3);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("D:\\Korepetycje\\git\\JavaLevelII\\Lesson1\\RacingGame\\img\\dusk-drive_dynamic_feature.png"));
-		label.setBounds(0, 0, 516, 282);
+		label.setBounds(0, 0, 522, 284);
 		frame.getContentPane().add(label);
 	}
-	
-	
-	public void addUser(){
-		UserDao userDao = new UserDao();
-		
-		User user1 = new User();
-		user1.setLogin(textLogin.getText());
-		user1.setPassword("Andrzej");
-	
-		userDao.addUser(user1);
-		
 	}
-}
+
