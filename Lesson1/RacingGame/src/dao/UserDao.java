@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.User;
@@ -15,14 +16,14 @@ public class UserDao {
 		connection = MySQLAccess.getConnection();
 	}
 
-	public void addUser(User user) {
+	public void addUser(String login, String password) {
 		PreparedStatement preparedStatement = null;
 		try {
 			preparedStatement = connection
 					.prepareStatement("insert into user (login, password) values (?, ?)");
 
-			preparedStatement.setString(1, user.getLogin());
-			preparedStatement.setString(2, user.getPassword());
+			preparedStatement.setString(1, login);
+			preparedStatement.setString(2, password);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -32,5 +33,35 @@ public class UserDao {
 		}
 	}
 	
+
+	public User logInUser(String login, String password) {
+		
+		User user  = null;
+		
+		PreparedStatement preparedStatement = null;
+		ResultSet rs = null;
+		try {
+			preparedStatement = connection
+					.prepareStatement("select * from user where login = ? and password = ?;");
+
+			preparedStatement.setString(1, login);
+			preparedStatement.setString(2, password);
+			rs = preparedStatement.executeQuery();
+			
+			if(rs.next()){
+				user = new User();
+				user.setId(rs.getInt(1));
+				user.setLogin(rs.getString(2));
+				user.setPassword(rs.getString(3));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			MySQLAccess.close(connection, null, preparedStatement);
+		}
+		return user;
+	}
 	
 }

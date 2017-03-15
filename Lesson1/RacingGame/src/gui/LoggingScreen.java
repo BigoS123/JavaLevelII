@@ -59,43 +59,43 @@ public class LoggingScreen {
 		textLogin.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		textLogin.setBackground(new Color(255, 255, 255));
 		textLogin.setForeground(new Color(0, 0, 0));
-		textLogin.setBounds(338, 97, 171, 34);
+		textLogin.setBounds(328, 77, 171, 34);
 		frame.getContentPane().add(textLogin);
 		textLogin.setColumns(10);
 
-		JLabel lblInsertLogin = new JLabel("Insert login:");
+		JLabel lblInsertLogin = new JLabel("Login:");
 		lblInsertLogin.setForeground(new Color(0, 153, 255));
 		lblInsertLogin.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		lblInsertLogin.setBounds(338, 73, 171, 23);
+		lblInsertLogin.setBounds(245, 77, 52, 30);
 		frame.getContentPane().add(lblInsertLogin);
 
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		passwordField.setForeground(new Color(0, 0, 0));
-		passwordField.setBounds(338, 168, 171, 34);
+		passwordField.setBounds(328, 122, 171, 34);
 		frame.getContentPane().add(passwordField);
 
-		JLabel lblInsertPassword = new JLabel("Insert password:");
+		JLabel lblInsertPassword = new JLabel("Password:");
 		lblInsertPassword.setBackground(new Color(204, 255, 255));
 		lblInsertPassword.setForeground(new Color(0, 153, 255));
 		lblInsertPassword.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		lblInsertPassword.setBounds(338, 143, 171, 23);
+		lblInsertPassword.setBounds(233, 126, 85, 30);
 		frame.getContentPane().add(lblInsertPassword);
 
-		JButton btnNewButton = new JButton("Log in");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnAddUser = new JButton("Add User");
+		btnAddUser.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				addUser();
-				HomeScreen.main(null);;
+				HomeScreen.main(null);
 				
 			}
 		});
-		btnNewButton.setBackground(new Color(245, 255, 250));
-		btnNewButton.setForeground(new Color(0, 0, 139));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		btnNewButton.setBounds(338, 225, 171, 43);
-		frame.getContentPane().add(btnNewButton);
+		btnAddUser.setBackground(new Color(245, 255, 250));
+		btnAddUser.setForeground(new Color(0, 0, 139));
+		btnAddUser.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		btnAddUser.setBounds(328, 167, 171, 43);
+		frame.getContentPane().add(btnAddUser);
 
 		JLabel lblWelcomeInRacing = new JLabel("Welcome in RACING GAME");
 		lblWelcomeInRacing.setForeground(Color.CYAN);
@@ -108,6 +108,20 @@ public class LoggingScreen {
 		label.setFont(new Font("Tahoma", Font.PLAIN, 37));
 		label.setBounds(44, 23, 440, 52);
 		frame.getContentPane().add(label);
+		
+		JButton btnLogin = new JButton("Log in");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				logInUser();
+				
+			}
+		});
+		btnLogin.setForeground(new Color(0, 0, 139));
+		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 27));
+		btnLogin.setBackground(new Color(245, 255, 250));
+		btnLogin.setBounds(328, 221, 171, 43);
+		frame.getContentPane().add(btnLogin);
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(
@@ -118,11 +132,17 @@ public class LoggingScreen {
 
 	public void addUser() {
 		UserDao userDao = new UserDao();
-
-		User user1 = new User();
-		user1.setLogin(textLogin.getText());
-		user1.setPassword(passwordField.getText());
-
-		userDao.addUser(user1);
+		userDao.addUser(textLogin.getText(), passwordField.getText());
+	}
+	public void logInUser() {
+		UserDao userDao = new UserDao();
+		User user = userDao.logInUser(textLogin.getText(), passwordField.getText());
+		if(user == null){
+			System.out.println("Brak takiego urzytkownika w bazie");
+		}else{
+		System.out.println("witamy w grze");
+		HomeScreen.main(null);
+		}
+		
 	}
 }
