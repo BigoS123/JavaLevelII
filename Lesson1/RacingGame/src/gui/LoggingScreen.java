@@ -138,9 +138,9 @@ public class LoggingScreen {
 		UserDao userDao = new UserDao();
 		User user = userDao.logInUser(textLogin.getText(), passwordField.getText());
 		if(user == null){
-			System.out.println("Brak takiego urzytkownika w bazie");
+			LoggingScreen.main(null);
 		}else{
-		System.out.println("witamy w grze");
+
 		HomeScreen.main(null);
 		}
 		

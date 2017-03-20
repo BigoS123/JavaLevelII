@@ -29,11 +29,10 @@ import java.awt.event.ActionEvent;
 
 public class HomeScreen {
 
-	//TODO 2 uzupelnic tabele car
-	//TODO 3 przygotowac model klasy car
+
+
 	//TODO 4 przygotowac ekran wyboru auta
-	//TODO 5 czyszczenie pól po zalogowaniu
-	
+
 	
 	
 	
