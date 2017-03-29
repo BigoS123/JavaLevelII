@@ -48,7 +48,7 @@ public class HomeScreen {
 			public void run() {
 				try {
 					HomeScreen window = new HomeScreen();
-//					window.frame.setVisible(true);
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -69,84 +69,69 @@ public class HomeScreen {
 	private void initialize() {
 
 		frame = new JFrame("");
-//		frame.setBounds(100, 100, 531, 320);
+		frame.setBounds(100, 100, 531, 320);
 		frame.setSize(531,320);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-//	    ImagePanel panel = new ImagePanel(new ImageIcon(getClass().getResource("/resources/dusk-drive_dynamic_feature.png")).getImage());
-//
-//	    frame.getContentPane().add(panel);
-		frame.setLayout(new BorderLayout());
-		frame.setContentPane(new JLabel (new ImageIcon(getClass().getResource("/resources/dusk-drive_dynamic_feature.png"))));
-		frame.setLayout(new FlowLayout());
-//	    
-//	    JButton btnNewButton = new JButton("New button");
-//	    btnNewButton.setBounds(370, 93, 89, 23);
-//	    panel.add(btnNewButton);
-//	    frame.pack();
-//	    frame.setVisible(true);
-//		
+		frame.setVisible(true);	   		
+		frame.getContentPane().setLayout(null);
 		
-//		frame.getContentPane().setLayout(null);
+		JLabel lblRacingGame = new JLabel("RACING GAME");
+		lblRacingGame.setFont(new Font("Tahoma", Font.PLAIN, 49));
+		lblRacingGame.setForeground(Color.CYAN);
+		lblRacingGame.setBounds(47, 11, 346, 52);
+		frame.getContentPane().add(lblRacingGame);
 		
-//		JLabel lblRacingGame = new JLabel("RACING GAME");
-//		lblRacingGame.setFont(new Font("Tahoma", Font.PLAIN, 49));
-//		lblRacingGame.setForeground(Color.CYAN);
-//		lblRacingGame.setBounds(47, 11, 346, 52);
-//		frame.getContentPane().add(lblRacingGame);
-//		
-//		JLabel label_1 = new JLabel("RACING GAME");
-//		label_1.setForeground(Color.BLUE);
-//		label_1.setFont(new Font("Tahoma", Font.PLAIN, 49));
-//		label_1.setBounds(57, 6, 438, 63);
-//		frame.getContentPane().add(label_1);
-//		
-//		JButton btnNewGame = new JButton("Race");
-//		btnNewGame.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				RaceScreen.main(null);
-//			}
-//		});
-//		btnNewGame.setBounds(348, 74, 147, 23);
-//		frame.getContentPane().add(btnNewGame);
-//		
-//		JButton btnNewButton = new JButton("Wrokshop");
-//		btnNewButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//			}
-//		});
-//		btnNewButton.setBounds(348, 176, 147, 23);
-//		frame.getContentPane().add(btnNewButton);
-//		
-//		JButton btnNewButton_1 = new JButton("Shop with upgrades");
-//		btnNewButton_1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				UpgradeScreen.main(null);
-//				
-//			}
-//		});
-//		btnNewButton_1.setBounds(350, 142, 145, 23);
-//		frame.getContentPane().add(btnNewButton_1);
-//		
-//		JButton btnNewButton_2 = new JButton("User profile");
-//		btnNewButton_2.setBounds(350, 108, 145, 23);
-//		frame.getContentPane().add(btnNewButton_2);
-//		
-//		JButton btnNewButton_3 = new JButton("Log screen");
-//		btnNewButton_3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				
-//				LoggingScreen.main(null);
-//				
-//			}
-//		});
-//		btnNewButton_3.setBounds(348, 210, 147, 23);
-//		frame.getContentPane().add(btnNewButton_3);
-//		
-//		JLabel label = new JLabel("");
-//		label.setIcon(new ImageIcon("D:\\Korepetycje\\git\\JavaLevelII\\Lesson1\\RacingGame\\img\\dusk-drive_dynamic_feature.png"));
-//		label.setBounds(0, 0, 522, 284);
-//		frame.getContentPane().add(label);
+		JLabel label_1 = new JLabel("RACING GAME");
+		label_1.setForeground(Color.BLUE);
+		label_1.setFont(new Font("Tahoma", Font.PLAIN, 49));
+		label_1.setBounds(57, 6, 438, 63);
+		frame.getContentPane().add(label_1);
+		
+		JButton btnNewGame = new JButton("Race");
+		btnNewGame.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RaceScreen.main(null);
+			}
+		});
+		btnNewGame.setBounds(348, 74, 147, 23);
+		frame.getContentPane().add(btnNewGame);
+		
+		JButton btnNewButton = new JButton("Wrokshop");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton.setBounds(348, 176, 147, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Shop with upgrades");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				UpgradeScreen.main(null);
+				
+			}
+		});
+		btnNewButton_1.setBounds(350, 142, 145, 23);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("User profile");
+		btnNewButton_2.setBounds(350, 108, 145, 23);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Log screen");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+			}
+		});
+		btnNewButton_3.setBounds(348, 210, 147, 23);
+		frame.getContentPane().add(btnNewButton_3);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("D:\\Korepetycje\\git\\JavaLevelII\\Lesson1\\RacingGame\\img\\dusk-drive_dynamic_feature.png"));
+		label.setBounds(0, 0, 522, 284);
+		frame.getContentPane().add(label);
 	}
 	}
 
