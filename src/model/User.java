@@ -1,10 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
 	int id;
 	String login;
 	String password;
+	List<Car> cars = new ArrayList<Car>();
 	
 	public int getId() {
 		return id;
@@ -24,8 +28,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
+	public List<Car> getCars() {
+		return cars;
+	}
+	public void setCars(List<Car> cars) {
+		this.cars = cars;
+	}
 	
 }

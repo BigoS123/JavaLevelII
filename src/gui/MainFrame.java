@@ -6,28 +6,39 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
+
+import app.Application;
+import constants.RacingGameConstants;
 
 public class MainFrame extends JFrame {
 
+	public static JPanel contentPane;
 
-
-	/**
-	 * Create the frame.
-	 */
 	public MainFrame() {
-		super();
-		HomePanel homePanel = new HomePanel();
-		setLayout(new BorderLayout());
-		add(homePanel, BorderLayout.CENTER);
-		setVisible(true);
-		pack();
-		
+		super(RacingGameConstants.GAME_TITLE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(null);
+		setContentPane(contentPane);
+		
+		
+		//TODO do dokonczenia inicjacja pierwszego panelu poprzez controller
+//		FirstPanel firstPanel = new FirstPanel();
+//		Controller
+//		contentPane.add(firstPanel);
+		
+		
+		
 
 	}
-	public static void replacePanel(JPanel newPanel){
-		
-	}	
+	
+	public void replacePanel(JPanel newPanel){
+		getContentPane().removeAll();
+		getContentPane().add(newPanel);
+		validate();
+		repaint();
+	}
 	
 }
