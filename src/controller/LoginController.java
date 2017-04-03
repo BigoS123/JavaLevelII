@@ -2,6 +2,8 @@ package controller;
 
 import javax.swing.JPanel;
 
+import app.Application;
+import gui.HomePanel;
 import gui.LoginPanel;
 import model.User;
 
@@ -15,10 +17,12 @@ public class LoginController implements Controller {
 		this.user = user;
 		this.loginPanel = loginPanel;
 		initView();
+		initController();
 	}
 
 	@Override
 	public void initView() {
+		Application.mainFrame.replacePanel(loginPanel);
 		loginPanel.getTextFieldUserLogin().setText("halina");
 		loginPanel.getPasswordFieldUserPassword().setText("halina");
 	}
@@ -30,11 +34,11 @@ public class LoginController implements Controller {
 	}
 	
 	private void loginUser(){
-		
+		new HomeController(new HomePanel());
 	}
 
 	private void addUser(){
-		
+		System.out.println("Add user");
 	}
 	
 }

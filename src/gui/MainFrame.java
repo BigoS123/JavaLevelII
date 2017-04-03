@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import app.Application;
 import constants.RacingGameConstants;
+import controller.LoginController;
+import model.User;
 
 public class MainFrame extends JFrame {
 
@@ -23,21 +25,18 @@ public class MainFrame extends JFrame {
 		contentPane.setLayout(null);
 		setContentPane(contentPane);
 		
-		
+	}
+	
+	public void init(){
 		//TODO do dokonczenia inicjacja pierwszego panelu poprzez controller
-//		FirstPanel firstPanel = new FirstPanel();
-//		Controller
-//		contentPane.add(firstPanel);
-		
-		
-		
+		LoginController loginController = new LoginController(new User(), new LoginPanel());
 
 	}
 	
 	public void replacePanel(JPanel newPanel){
 		getContentPane().removeAll();
 		getContentPane().add(newPanel);
-		validate();
+		revalidate();
 		repaint();
 	}
 	

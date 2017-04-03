@@ -1,20 +1,30 @@
 package gui;
 
 import javax.swing.JPanel;
+
+import app.Application;
+
 import javax.swing.JButton;
 
 public class HomePanel extends JPanel {
 
-	/**
-	 * Create the panel.
-	 */
+	private JButton btnBackToLoginPanel;
+	
 	public HomePanel() {
 		setLayout(null);
-		setBounds(100, 100, 1366, 768);
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(78, 209, 270, 80);
-		add(btnNewButton);
+		this.setBounds(0, 0, 434, 262);
+		btnBackToLoginPanel = new JButton("Back to Login Panel");
+		btnBackToLoginPanel.setBounds(78, 209, 270, 80);
+		add(btnBackToLoginPanel);
+	
+	}
 
+	public JButton getBtnBackToLoginPanel() {
+		return btnBackToLoginPanel;
+	}
+
+	public void setBtnBackToLoginPanel(JButton btnBackToLoginPanel) {
+		this.btnBackToLoginPanel = btnBackToLoginPanel;
 	}
 
 }

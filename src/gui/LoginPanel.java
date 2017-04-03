@@ -80,11 +80,6 @@ public class LoginPanel extends JPanel {
 		btnLogin.setBounds(1175, 594, 171, 43);
 		add(btnLogin);
 		
-		
-		
-		
-		
-
 	}
 
 	public JTextField getTextFieldUserLogin() {
