@@ -11,7 +11,7 @@ public class LoginController implements Controller {
 
 	private User user;
 	private LoginPanel loginPanel;
-	
+
 	public LoginController(User user, LoginPanel loginPanel) {
 		super();
 		this.user = user;
@@ -32,13 +32,13 @@ public class LoginController implements Controller {
 		loginPanel.getBtnLogin().addActionListener(e -> loginUser());
 		loginPanel.getBtnAddUser().addActionListener(e -> addUser());
 	}
-	
-	private void loginUser(){
+
+	private void loginUser() {
 		new HomeController(new HomePanel());
 	}
 
-	private void addUser(){
+	private void addUser() {
 		System.out.println("Add user");
 	}
-	
+
 }

@@ -3,7 +3,9 @@ package app;
 import java.awt.EventQueue;
 
 import gui.MainFrame;
+import model.User;
 
+//todo1 zrobic panele z ekranow ktore sa
 public class Application {
 
 	public static MainFrame mainFrame;

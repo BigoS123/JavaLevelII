@@ -79,7 +79,7 @@ public class LoginPanel extends JPanel {
 		btnLogin.setBackground(new Color(245, 255, 250));
 		btnLogin.setBounds(1175, 594, 171, 43);
 		add(btnLogin);
-		
+				
 	}
 
 	public JTextField getTextFieldUserLogin() {
