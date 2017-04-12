@@ -1,7 +1,7 @@
 package controller;
 
 import app.Application;
-import gui.GaragePanel;
+import gui.CarChoicePanel;
 import gui.HomePanel;
 import gui.LoginPanel;
 import model.Car;
@@ -26,16 +26,16 @@ public class HomeController implements Controller {
 
 	@Override
 	public void initController() {
-		homePanel.getBtnBackToLoginPanel().addActionListener(e -> backToLoginPanel());
-		homePanel.getBtnGoToNextScreen().addActionListener(e -> goToGaragePanel());
+		homePanel.getBtnBack().addActionListener(e -> backToLoginPanel());
+		homePanel.getBtnGoToNextScreen().addActionListener(e -> goToCarChoicePanel());
 		
 	}
 	
 	private void backToLoginPanel(){
 		new LoginController(new User(), new LoginPanel());
 	}
-	private void goToGaragePanel(){
-		new GarageController(new Car(),new GaragePanel());
+	private void goToCarChoicePanel(){
+		new CarChoiceController(new Car(),new CarChoicePanel());
 	}
 	
 }

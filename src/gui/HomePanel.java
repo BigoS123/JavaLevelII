@@ -6,30 +6,25 @@ import app.Application;
 
 import javax.swing.JButton;
 
-public class HomePanel extends JPanel {
+public class HomePanel extends AppPanel {
 
-	private JButton btnBackToLoginPanel;
+
 	private JButton btnGoToNextScreen;
-	
+	private JButton btnGoToUpgradeCenter;
+
 	public HomePanel() {
-		this.setBounds(0, 0, 434, 262);
-		setLayout(null);
-		btnBackToLoginPanel = new JButton("Back to Login Panel");
-		btnBackToLoginPanel.setBounds(78, 209, 270, 80);
-		add(btnBackToLoginPanel);
-		
-		btnGoToNextScreen = new JButton("go to garage");
-		btnGoToNextScreen.setBounds(78, 118, 270, 80);
-		add(btnGoToNextScreen);
+		super();
+
 	
-	}
 
-	public JButton getBtnBackToLoginPanel() {
-		return btnBackToLoginPanel;
-	}
+		btnGoToNextScreen = new JButton("go to garage");
+		btnGoToNextScreen.setBounds(10, 83, 204, 50);
+		add(btnGoToNextScreen);
 
-	public void setBtnBackToLoginPanel(JButton btnBackToLoginPanel) {
-		this.btnBackToLoginPanel = btnBackToLoginPanel;
+		btnGoToUpgradeCenter = new JButton("go to upgrade center");
+		btnGoToUpgradeCenter.setBounds(10, 11, 204, 61);
+		add(btnGoToUpgradeCenter);
+
 	}
 
 	public JButton getBtnGoToNextScreen() {
@@ -39,4 +34,13 @@ public class HomePanel extends JPanel {
 	public void setBtnGoToNextScreen(JButton btnGoToNextScreen) {
 		this.btnGoToNextScreen = btnGoToNextScreen;
 	}
+
+	public JButton getBtnGoToUpgradeCenter() {
+		return btnGoToUpgradeCenter;
+	}
+
+	public void setBtnGoToUpgradeCenter(JButton btnGoToUpgradeCenter) {
+		this.btnGoToUpgradeCenter = btnGoToUpgradeCenter;
+	}
+
 }

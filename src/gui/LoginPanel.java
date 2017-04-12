@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-public class LoginPanel extends JPanel {
+public class LoginPanel extends AppPanel {
 
 	private JTextField textFieldUserLogin;
 	private JPasswordField passwordFieldUserPassword;
@@ -23,7 +23,9 @@ public class LoginPanel extends JPanel {
 	
 	public LoginPanel() {
 		super();
-		this.setBounds(0, 0, 434, 262);
+		getBtnBack().setVisible(false);
+		
+	
 
 		textFieldUserLogin = new JTextField();
 		textFieldUserLogin.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -57,7 +59,7 @@ public class LoginPanel extends JPanel {
 		btnAddUser.setBackground(new Color(245, 255, 250));
 		btnAddUser.setForeground(new Color(0, 0, 139));
 		btnAddUser.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		btnAddUser.setBounds(1175, 684, 171, 43);
+		btnAddUser.setBounds(328, 212, 171, 43);
 		add(btnAddUser);
 
 		lblWelcomeInRacing = new JLabel("Welcome in RACING GAME");
@@ -77,10 +79,12 @@ public class LoginPanel extends JPanel {
 		btnLogin.setForeground(new Color(0, 0, 139));
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 27));
 		btnLogin.setBackground(new Color(245, 255, 250));
-		btnLogin.setBounds(1175, 594, 171, 43);
+		btnLogin.setBounds(328, 167, 171, 43);
 		add(btnLogin);
+		
 				
 	}
+
 
 	public JTextField getTextFieldUserLogin() {
 		return textFieldUserLogin;
