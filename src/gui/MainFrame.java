@@ -30,7 +30,8 @@ public class MainFrame extends JFrame {
 	public void init(){
 		//TODO do dokonczenia inicjacja pierwszego panelu poprzez controller
 		LoginController loginController = new LoginController(new User(), new LoginPanel());
-
+		
+	
 	}
 	
 	public void replacePanel(JPanel newPanel){

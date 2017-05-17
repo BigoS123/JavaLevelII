@@ -2,6 +2,7 @@ package app;
 
 import java.awt.EventQueue;
 
+import database.DBConnection;
 import gui.MainFrame;
 import model.User;
 
@@ -9,22 +10,22 @@ import model.User;
 public class Application {
 
 	public static MainFrame mainFrame;
-	
+
 	public static User loggedUser;
-	
-	
+
 	public static void main(String[] args) {
 
-
-		startUpApplication();
+		DBConnection.getInstance().init();
+		DBConnection.getInstance().registerShutdownHook();
+		// startUpApplication();
 
 	}
-	
-	private void setUpApplication(){
-		
+
+	private void setUpApplication() {
+
 	}
-	
-	private static void startUpApplication(){
+
+	private static void startUpApplication() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -37,7 +38,5 @@ public class Application {
 			}
 		});
 	}
-	
-
 
 }
