@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-
+//TODO stworzyc tabele na bazie danych odpowiadajace modela w javie
+// TODO stworzyc plik sql z instertami czyli dodawanie recordu do bazy
 	int id;
 	String login;
 	String password;
