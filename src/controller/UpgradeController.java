@@ -13,14 +13,7 @@ public class UpgradeController implements Controller {
 		super();
 		this.car = car;
 		this.upgradePanel = upgradePanel;
-		initView();
 		initController();
-	}
-
-	@Override
-	public void initView() {
-		Application.mainFrame.replacePanel(upgradePanel);
-		
 	}
 
 	@Override

@@ -5,36 +5,40 @@ import javax.swing.JPanel;
 import app.Application;
 import gui.HomePanel;
 import gui.LoginPanel;
+import gui.MainFrame;
 import model.User;
 
 public class LoginController implements Controller {
 
+	private static LoginController instance;
+	
 	private User user;
 	private LoginPanel loginPanel;
 
-	public LoginController(User user, LoginPanel loginPanel) {
+	public LoginController() {
 		super();
-		this.user = user;
-		this.loginPanel = loginPanel;
-		initView();
-		initController();
 	}
+	
+	public static LoginController getInstance(){
 
-	@Override
-	public void initView() {
-		Application.mainFrame.replacePanel(loginPanel);
-		loginPanel.getTextFieldUserLogin().setText("halina");
-		loginPanel.getPasswordFieldUserPassword().setText("halina");
+		if(instance == null){
+
+			instance = new LoginController();
+
+		}
+
+		return instance;
+
 	}
 
 	@Override
 	public void initController() {
-		loginPanel.getBtnLogin().addActionListener(e -> loginUser());
-		loginPanel.getBtnAddUser().addActionListener(e -> addUser());
+		LoginPanel.getInstance().getBtnLogin().addActionListener(e -> loginUser());
+		LoginPanel.getInstance().getBtnAddUser().addActionListener(e -> addUser());
 	}
 
 	private void loginUser() {
-		new HomeController(new HomePanel());
+		MainFrame.getInstance().replacePanel(HomePanel.getInstance());
 	}
 
 	private void addUser() {

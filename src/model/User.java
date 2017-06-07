@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-//TODO stworzyc tabele na bazie danych odpowiadajace modela w javie
-// TODO stworzyc plik sql z instertami czyli dodawanie recordu do bazy
+//TODO stworzyc tabele na bazie danych odpowiadajace modela w javie (na nastepnej lekcji)
+// TODO stworzyc plik sql z instertami czyli dodawanie recordu do bazy (na nastepnej lekcji)
+
+//TODO Poprawa widoków na ekranach
+//TODO podpiêcie przycisku do cofania	
 	private int id;
 	private String login;
 	private String password;
+	private int coins;
 	private List<UserCar> userCars;
 	
 	public int getId() {
@@ -28,6 +32,18 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public int getCoins() {
+		return coins;
+	}
+	public void setCoins(int coins) {
+		this.coins = coins;
+	}
+	public List<UserCar> getUserCars() {
+		return userCars;
+	}
+	public void setUserCars(List<UserCar> userCars) {
+		this.userCars = userCars;
 	}
 	
 	

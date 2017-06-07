@@ -15,20 +15,15 @@ public class CarChoiceController implements Controller{
 		super();
 		this.car = car;
 		this.carChoicePanel = carChoicePanel;
-		initView();
 		initController();
 	}
-	@Override
-	public void initView() {
-		Application.mainFrame.replacePanel(carChoicePanel);
-		
-	}
+
 	@Override
 	public void initController() {
 		carChoicePanel.getBtnBackToHome().addActionListener(e -> backToHomeScreen());
 		
 	}
 	private void backToHomeScreen() {
-		new HomeController(new HomePanel());
+	
 	}
 }

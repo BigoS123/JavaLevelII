@@ -26,7 +26,6 @@ public class UserDao {
 			preparedStatement.setString(2, password);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			MySQLAccess.close(connection, null, preparedStatement);
@@ -56,7 +55,6 @@ public class UserDao {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			MySQLAccess.close(connection, null, preparedStatement);

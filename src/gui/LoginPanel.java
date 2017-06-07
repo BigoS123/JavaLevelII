@@ -4,6 +4,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import controller.LoginController;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -12,7 +14,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-public class LoginPanel extends AppPanel {
+public class LoginPanel extends AppPanel implements PanelView {
+
+	private static LoginPanel instance;
 
 	private JTextField textFieldUserLogin;
 	private JPasswordField passwordFieldUserPassword;
@@ -20,12 +24,10 @@ public class LoginPanel extends AppPanel {
 	private JButton btnAddUser;
 	private JLabel lblInsertLogin;
 	private JLabel lblWelcomeInRacing;
-	
+
 	public LoginPanel() {
 		super();
 		getBtnBack().setVisible(false);
-		
-	
 
 		textFieldUserLogin = new JTextField();
 		textFieldUserLogin.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -55,7 +57,7 @@ public class LoginPanel extends AppPanel {
 		add(lblInsertPassword);
 
 		btnAddUser = new JButton("Add User");
-		
+
 		btnAddUser.setBackground(new Color(245, 255, 250));
 		btnAddUser.setForeground(new Color(0, 0, 139));
 		btnAddUser.setFont(new Font("Tahoma", Font.PLAIN, 27));
@@ -81,10 +83,15 @@ public class LoginPanel extends AppPanel {
 		btnLogin.setBackground(new Color(245, 255, 250));
 		btnLogin.setBounds(328, 167, 171, 43);
 		add(btnLogin);
-		
-				
+
 	}
 
+	public static LoginPanel getInstance() {
+		if (instance == null) {
+			instance = new LoginPanel();
+		}
+		return instance;
+	}
 
 	public JTextField getTextFieldUserLogin() {
 		return textFieldUserLogin;
@@ -132,6 +139,17 @@ public class LoginPanel extends AppPanel {
 
 	public void setLblWelcomeInRacing(JLabel lblWelcomeInRacing) {
 		this.lblWelcomeInRacing = lblWelcomeInRacing;
+	}
+
+	@Override
+	public void initPanelView() {
+		
+
+//		LoginPanel.getInstance().getTextFieldUserLogin().setText("halina");
+//		LoginPanel.getInstance().getPasswordFieldUserPassword().setText("halina");
+		
+		LoginController.getInstance().initController();
+
 	}
 
 }

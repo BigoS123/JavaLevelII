@@ -1,41 +1,44 @@
 package controller;
 
-import app.Application;
 import gui.CarChoicePanel;
 import gui.HomePanel;
 import gui.LoginPanel;
+import gui.MainFrame;
 import model.Car;
-import model.User;
 
 public class HomeController implements Controller {
 
-	private HomePanel homePanel;
+	private static HomeController instance;
 
-	public HomeController(HomePanel homePanel) {
+	public HomeController() {
 		super();
-		this.homePanel = homePanel;
-		initView();
-		initController();
 	}
 
-	@Override
-	public void initView() {
-		Application.mainFrame.replacePanel(homePanel);
-		
+	public static HomeController getInstance() {
+
+		if (instance == null) {
+
+			instance = new HomeController();
+
+		}
+
+		return instance;
+
 	}
 
 	@Override
 	public void initController() {
-		homePanel.getBtnBack().addActionListener(e -> backToLoginPanel());
-		homePanel.getBtnGoToNextScreen().addActionListener(e -> goToCarChoicePanel());
-		
+		HomePanel.getInstance().getBtnBack().addActionListener(e -> backToLoginPanel());
+		HomePanel.getInstance().getBtnGoToNextScreen().addActionListener(e -> goToCarChoicePanel());
+
 	}
-	
-	private void backToLoginPanel(){
-		new LoginController(new User(), new LoginPanel());
+
+	private void backToLoginPanel() {
+		MainFrame.getInstance().replacePanel(LoginPanel.getInstance());
 	}
-	private void goToCarChoicePanel(){
-		new CarChoiceController(new Car(),new CarChoicePanel());
+
+	private void goToCarChoicePanel() {
+//		MainFrame.getInstance().replacePanel(LoginPanel.getInstance());
 	}
-	
+
 }

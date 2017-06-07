@@ -1,49 +1,50 @@
 package model;
 
 public class Car {
-	private int brakes;
-	private int engine;
-	private int tyres;
-	private int bodyWeight;
-	private int suspention;
-	private boolean turbo;
-
-	public int getBrakes() {
-		return brakes;
+	private int id;
+	private String name;
+	private int acceleration;
+	private int handling;
+	private int braking;
+	private int topSpeed;
+	
+	public int getId() {
+		return id;
 	}
-	public void setBrakes(int brakes) {
-		this.brakes = brakes;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public int getEngine() {
-		return engine;
+	public String getName() {
+		return name;
 	}
-	public void setEngine(int engine) {
-		this.engine = engine;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public int getTyres() {
-		return tyres;
+	public int getAcceleration() {
+		return acceleration;
 	}
-	public void setTyres(int tyres) {
-		this.tyres = tyres;
+	public void setAcceleration(int acceleration) {
+		this.acceleration = acceleration;
 	}
-	public int getBodyWeight() {
-		return bodyWeight;
+	public int getHandling() {
+		return handling;
 	}
-	public void setBodyWeight(int bodyWeight) {
-		this.bodyWeight = bodyWeight;
+	public void setHandling(int handling) {
+		this.handling = handling;
 	}
-	public int getSuspention() {
-		return suspention;
+	public int getBraking() {
+		return braking;
 	}
-	public void setSuspention(int suspention) {
-		this.suspention = suspention;
+	public void setBraking(int braking) {
+		this.braking = braking;
 	}
-	public boolean isTurbo() {
-		return turbo;
+	public int getTopSpeed() {
+		return topSpeed;
 	}
-	public void setTurbo(boolean turbo) {
-		this.turbo = turbo;
+	public void setTopSpeed(int topSpeed) {
+		this.topSpeed = topSpeed;
 	}
 	
+
 
 }

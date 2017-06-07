@@ -6,18 +6,16 @@ import database.DBConnection;
 import gui.MainFrame;
 import model.User;
 
-//todo1 zrobic panele z ekranow ktore sa
+//TODO Zrobiæ przejœcia pomiêdzy poszczegolnymi ekranami w analogiczny sposob do LoginPanel i HomePanel
 public class Application {
-
-	public static MainFrame mainFrame;
 
 	public static User loggedUser;
 
 	public static void main(String[] args) {
 
-		DBConnection.getInstance().init();
-		DBConnection.getInstance().registerShutdownHook();
-		// startUpApplication();
+//		DBConnection.getInstance().init();
+//		DBConnection.getInstance().registerShutdownHook();
+		 startUpApplication();
 
 	}
 
@@ -29,9 +27,8 @@ public class Application {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					mainFrame = new MainFrame();
-					mainFrame.setVisible(true);
-					mainFrame.init();
+					MainFrame.getInstance();
+					MainFrame.getInstance().init();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
