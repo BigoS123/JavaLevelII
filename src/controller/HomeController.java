@@ -38,7 +38,7 @@ public class HomeController implements Controller {
 	}
 
 	private void goToCarChoicePanel() {
-//		MainFrame.getInstance().replacePanel(LoginPanel.getInstance());
+		MainFrame.getInstance().replacePanel(CarChoicePanel.getInstance());
 	}
 
 }

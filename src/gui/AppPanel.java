@@ -1,18 +1,25 @@
 package gui;
 
+import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import com.sun.prism.Image;
+
+import constants.RacingGameConstants;
 
 public class AppPanel extends JPanel {
 	protected JButton btnBack;
 
 	public AppPanel() {
 		super();
-		this.setBounds(0, 0, 1366, 766);
+		this.setBounds(RacingGameConstants.PANEL_POSITION_X, RacingGameConstants.PANEL_POSITION_Y,
+				 RacingGameConstants.PANEL_WIDTH, RacingGameConstants.PANEL_HEIGHT);
 		setLayout(null);
-	
 		btnBack = new JButton("Back");
-		btnBack.setBounds(0, 212, 204, 50);
+		btnBack.setBounds(RacingGameConstants.BUTTON_POSITION_X, RacingGameConstants.BUTTON_POSITION_Y, RacingGameConstants.BUTTON_WIDTH, RacingGameConstants.BUTTON_HEIGHT);
 		add(btnBack);
 	}
 

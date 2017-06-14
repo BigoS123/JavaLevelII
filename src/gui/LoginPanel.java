@@ -11,6 +11,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
@@ -41,6 +42,8 @@ public class LoginPanel extends AppPanel implements PanelView {
 		lblInsertLogin.setForeground(new Color(0, 153, 255));
 		lblInsertLogin.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		lblInsertLogin.setBounds(245, 77, 52, 30);
+		ImageIcon icon = new ImageIcon("img/1412804549363694769.jpg");
+		lblInsertLogin.setIcon(icon);
 		add(lblInsertLogin);
 
 		passwordFieldUserPassword = new JPasswordField();

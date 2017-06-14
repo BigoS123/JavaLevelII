@@ -9,8 +9,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
-public class CarChoicePanel extends JPanel {
+import controller.CarChoiceController;
+import controller.HomeController;
+import controller.LoginController;
 
+public class CarChoicePanel extends JPanel implements PanelView {
+
+	private static CarChoicePanel instance;
+	
 	private JRadioButton rdbtnBmw;
 	private JRadioButton rdbtnAudi;
 	private JRadioButton rdbtnBugatti;
@@ -24,7 +30,6 @@ public class CarChoicePanel extends JPanel {
 		this.setBounds(0, 0, 434, 262);
 		setLayout(null);
 		
-	
 	
 		
 		rdbtnBmw = new JRadioButton("BMW");
@@ -57,6 +62,12 @@ public class CarChoicePanel extends JPanel {
 		btnBackToHome.setBounds(177, 228, 125, 34);
 		add(btnBackToHome);
 		
+	}
+	public static CarChoicePanel getInstance() {
+		if (instance == null) {
+			instance = new CarChoicePanel();
+		}
+		return instance;
 	}
 
 	public JRadioButton getRdbtnBmw() {
@@ -113,6 +124,14 @@ public class CarChoicePanel extends JPanel {
 
 	public void setBtnBackToHome(JButton btnBackToHome) {
 		this.btnBackToHome = btnBackToHome;
+	}
+
+	@Override
+	public void initPanelView() {
+		
+		CarChoiceController.getInstance().initController();
+
+		
 	}
 
 	
