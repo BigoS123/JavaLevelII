@@ -1,12 +1,9 @@
 package gui;
 
-import javax.swing.JPanel;
-
-import app.Application;
-import controller.HomeController;
-
 import javax.swing.JButton;
 
+import controller.HomeController;
+//TODO zrobiene przycisku log out
 public class HomePanel extends AppPanel implements PanelView {
 
 	private static HomePanel instance;
@@ -16,6 +13,7 @@ public class HomePanel extends AppPanel implements PanelView {
 
 	public HomePanel() {
 		super();
+		getBtnBack().setText("Back");
 		btnGoToNextScreen = new JButton("go to garage");
 		btnGoToNextScreen.setBounds(10, 83, 204, 50);
 		add(btnGoToNextScreen);

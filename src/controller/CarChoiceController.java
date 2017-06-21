@@ -1,11 +1,8 @@
 package controller;
 
-import app.Application;
 import gui.CarChoicePanel;
 import gui.HomePanel;
-import gui.LoginPanel;
 import gui.MainFrame;
-import model.Car;
 
 public class CarChoiceController implements Controller {
 

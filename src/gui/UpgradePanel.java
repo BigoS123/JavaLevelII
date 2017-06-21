@@ -16,7 +16,7 @@ import javax.swing.JToggleButton;
 import controller.HomeController;
 import controller.UpgradeController;
 
-public class UpgradePanel extends JPanel implements PanelView {
+public class UpgradePanel extends AppPanel implements PanelView {
 
 	
 	private static UpgradePanel instance;
@@ -37,8 +37,6 @@ private JButton btnBack;
 
 	public UpgradePanel() {
 		super();
-		this.setBounds(0, 0, 434, 262);
-		setLayout(null);
 
 		btnUpgradeEngine = new JButton("Upgrade Engine");
 		btnUpgradeEngine.setBounds(5, 5, 109, 23);

@@ -5,7 +5,6 @@ import gui.HomePanel;
 import gui.LoginPanel;
 import gui.MainFrame;
 import gui.UpgradePanel;
-import model.Car;
 
 public class HomeController implements Controller {
 

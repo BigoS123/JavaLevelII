@@ -1,12 +1,7 @@
 package gui;
 
-import java.awt.Color;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-
-import com.sun.prism.Image;
 
 import constants.RacingGameConstants;
 

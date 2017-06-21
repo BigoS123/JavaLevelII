@@ -7,8 +7,7 @@ public class User {
 //TODO stworzyc tabele na bazie danych odpowiadajace modela w javie (na nastepnej lekcji)
 // TODO stworzyc plik sql z instertami czyli dodawanie recordu do bazy (na nastepnej lekcji)
 
-//TODO Poprawa widoków na ekranach
-//TODO podpiêcie przycisku do cofania	
+
 	private int id;
 	private String login;
 	private String password;

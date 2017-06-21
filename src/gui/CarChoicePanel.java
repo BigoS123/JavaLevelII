@@ -13,7 +13,7 @@ import controller.CarChoiceController;
 import controller.HomeController;
 import controller.LoginController;
 
-public class CarChoicePanel extends JPanel implements PanelView {
+public class CarChoicePanel extends AppPanel implements PanelView {
 
 	private static CarChoicePanel instance;
 	
@@ -27,10 +27,7 @@ public class CarChoicePanel extends JPanel implements PanelView {
 	
 	public CarChoicePanel() {
 		super();
-		this.setBounds(0, 0, 434, 262);
-		setLayout(null);
-		
-	
+
 		
 		rdbtnBmw = new JRadioButton("BMW");
 		rdbtnBmw.setBounds(25, 198, 109, 23);

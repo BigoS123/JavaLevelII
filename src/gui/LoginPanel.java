@@ -1,20 +1,20 @@
 package gui;
 
-import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import controller.LoginController;
-
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-
+//TODO zrobic obrazki tam gdzie ich miejsca XD
 public class LoginPanel extends AppPanel implements PanelView {
 
 	private static LoginPanel instance;
@@ -26,8 +26,11 @@ public class LoginPanel extends AppPanel implements PanelView {
 	private JLabel lblInsertLogin;
 	private JLabel lblWelcomeInRacing;
 
+	private BufferedImage image;
+
 	public LoginPanel() {
 		super();
+
 		getBtnBack().setLocation(0, 212);
 		getBtnBack().setVisible(false);
 
@@ -43,8 +46,9 @@ public class LoginPanel extends AppPanel implements PanelView {
 		lblInsertLogin.setForeground(new Color(0, 153, 255));
 		lblInsertLogin.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		lblInsertLogin.setBounds(245, 77, 52, 30);
-//		ImageIcon icon = new ImageIcon(this.getClass()."img/1412804549363694769.jpg");
-//		lblInsertLogin.setIcon(icon);
+		// ImageIcon icon = new
+		// ImageIcon(this.getClass()."img/1412804549363694769.jpg");
+		// lblInsertLogin.setIcon(icon);
 		add(lblInsertLogin);
 
 		passwordFieldUserPassword = new JPasswordField();
@@ -65,7 +69,7 @@ public class LoginPanel extends AppPanel implements PanelView {
 		btnAddUser.setBackground(new Color(245, 255, 250));
 		btnAddUser.setForeground(new Color(0, 0, 139));
 		btnAddUser.setFont(new Font("Tahoma", Font.PLAIN, 27));
-		btnAddUser.setBounds(328, 212, 171, 43);
+		btnAddUser.setBounds(365, 660, 171, 43);
 		add(btnAddUser);
 
 		lblWelcomeInRacing = new JLabel("Welcome in RACING GAME");
@@ -88,6 +92,12 @@ public class LoginPanel extends AppPanel implements PanelView {
 		btnLogin.setBounds(328, 167, 171, 43);
 		add(btnLogin);
 
+		try {
+			image = ImageIO.read(getClass().getResource("/img/loginScreen.png"));
+		} catch (IOException e) {
+			 e.printStackTrace();
+		}
+
 	}
 
 	public static LoginPanel getInstance() {
@@ -95,6 +105,12 @@ public class LoginPanel extends AppPanel implements PanelView {
 			instance = new LoginPanel();
 		}
 		return instance;
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(image, 0, 0, this);
 	}
 
 	public JTextField getTextFieldUserLogin() {
@@ -147,11 +163,10 @@ public class LoginPanel extends AppPanel implements PanelView {
 
 	@Override
 	public void initPanelView() {
-		
 
-//		LoginPanel.getInstance().getTextFieldUserLogin().setText("halina");
-//		LoginPanel.getInstance().getPasswordFieldUserPassword().setText("halina");
-		
+		// LoginPanel.getInstance().getTextFieldUserLogin().setText("halina");
+		// LoginPanel.getInstance().getPasswordFieldUserPassword().setText("halina");
+
 		LoginController.getInstance().initController();
 
 	}
