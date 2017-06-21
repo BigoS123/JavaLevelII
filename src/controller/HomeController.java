@@ -4,6 +4,7 @@ import gui.CarChoicePanel;
 import gui.HomePanel;
 import gui.LoginPanel;
 import gui.MainFrame;
+import gui.UpgradePanel;
 import model.Car;
 
 public class HomeController implements Controller {
@@ -30,7 +31,7 @@ public class HomeController implements Controller {
 	public void initController() {
 		HomePanel.getInstance().getBtnBack().addActionListener(e -> backToLoginPanel());
 		HomePanel.getInstance().getBtnGoToNextScreen().addActionListener(e -> goToCarChoicePanel());
-
+		HomePanel.getInstance().getBtnGoToUpgradeCenter().addActionListener(e -> goToUpgradePanel());
 	}
 
 	private void backToLoginPanel() {
@@ -41,4 +42,7 @@ public class HomeController implements Controller {
 		MainFrame.getInstance().replacePanel(CarChoicePanel.getInstance());
 	}
 
+	private void goToUpgradePanel() {
+		MainFrame.getInstance().replacePanel(UpgradePanel.getInstance());
+	}
 }

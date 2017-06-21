@@ -13,8 +13,14 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 
-public class UpgradePanel extends JPanel {
+import controller.HomeController;
+import controller.UpgradeController;
 
+public class UpgradePanel extends JPanel implements PanelView {
+
+	
+	private static UpgradePanel instance;
+	
 private JButton btnUpgradeEngine;
 private JButton btnUpgradeBody;
 private JButton btnBuySpoiler;
@@ -26,6 +32,8 @@ private JButton btnUpgradeTyres;
 private JButton btnBuySkirts;
 private JLabel lblSetBalanceBetween;
 private JSlider slider;
+private JButton btnBack;
+
 
 	public UpgradePanel() {
 		super();
@@ -88,8 +96,23 @@ private JSlider slider;
 		slider.setBounds(228, 90, 200, 26);
 		add(slider);
 		lblSetBalanceBetween.setLabelFor(slider);
+		
+		btnBack = new JButton("Back");
+		btnBack.setBounds(5, 210, 135, 41);
+		add(btnBack);
 	}
-
+	public static UpgradePanel getInstance(){
+		if(instance == null){
+			instance = new UpgradePanel();
+		}
+		return instance;
+	}
+	public JButton getBtnBack() {
+		return btnBack;
+	}
+	public void setBtnBack(JButton btnBack) {
+		this.btnBack = btnBack;
+	}
 	public JButton getBtnUpgradeEngine() {
 		return btnUpgradeEngine;
 	}
@@ -177,5 +200,12 @@ private JSlider slider;
 	public void setSlider(JSlider slider) {
 		this.slider = slider;
 	}
+
+	@Override
+	public void initPanelView() {
+		UpgradeController.getInstance().initController();
+		
+	}
+
 
 }

@@ -1,26 +1,38 @@
 package controller;
 
 import app.Application;
+import gui.CarChoicePanel;
+import gui.HomePanel;
+import gui.MainFrame;
 import gui.UpgradePanel;
 import model.Car;
 
 public class UpgradeController implements Controller {
 
-	private Car car;
-	private UpgradePanel upgradePanel;
+	private static UpgradeController instance;
 
-	public UpgradeController(Car car, UpgradePanel upgradePanel) {
+	public UpgradeController() {
 		super();
-		this.car = car;
-		this.upgradePanel = upgradePanel;
-		initController();
-	}
 
+	}
+	
+	public static UpgradeController getInstance() {
+
+		if (instance == null) {
+
+			instance = new UpgradeController();
+
+		}
+
+		return instance;
+	}
 	@Override
 	public void initController() {
-		
-		
+		UpgradePanel.getInstance().getBtnBack().addActionListener(e -> backToHomePanel());
 	}
 
+	private void backToHomePanel() {
+		MainFrame.getInstance().replacePanel(HomePanel.getInstance());
+	}
 	
 }
