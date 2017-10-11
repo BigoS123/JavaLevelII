@@ -1,7 +1,5 @@
 package constants;
 
-import javax.swing.JButton;
-
 public final class RacingGameConstants {
 
 	public static final String GAME_TITLE = "Racing game";
@@ -13,16 +11,9 @@ public final class RacingGameConstants {
 	public static final int PANEL_POSITION_Y = 0;
 	public static final int PANEL_WIDTH = 1366;
 	public static final int PANEL_HEIGHT = 766;
-	public static final int BUTTON_POSITION_X = 0;
-	public static final int BUTTON_POSITION_Y = 212;
-	public static final int BUTTON_WIDTH = 204;
-	public static final int BUTTON_HEIGHT = 50;
+	public static final int BTN_BACK_POSITION_X = 0;
+	public static final int BTN_BACK_POSITION_Y = 650;
+	public static final int BTN_BACK_WIDTH = 204;
+	public static final int BTN_BACK_HEIGHT = 50;
 
-	
-
-
-	
-	
-	
-	
 }

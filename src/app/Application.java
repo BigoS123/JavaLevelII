@@ -1,33 +1,45 @@
 package app;
 
 import java.awt.EventQueue;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-import database.DBConnection;
 import gui.MainFrame;
 import model.User;
+import util.UTF8Control;
 
-//TODO Zrobiæ przejœcia pomiêdzy poszczegolnymi ekranami w analogiczny sposob do LoginPanel i HomePanel
+//TODO Zrobiï¿½ przejï¿½cia pomiï¿½dzy poszczegolnymi ekranami w analogiczny sposob do LoginPanel i HomePanel
 public class Application {
 
 	public static User loggedUser;
+	public static ResourceBundle appNameResourceBundle;
 
 	public static void main(String[] args) {
 
-//		DBConnection.getInstance().init();
-//		DBConnection.getInstance().registerShutdownHook();
+		 setUpApplication();
 		 startUpApplication();
 
 	}
 
-	private void setUpApplication() {
-
+	private static void startDataBase(){
+//		DBConnection.getInstance().init();
+//		DBConnection.getInstance().registerShutdownHook();
+	}
+	
+	
+	private static void setUpApplication() {
+		setApplicationLanguage("pl", "PL");
 	}
 
+	private static void setApplicationLanguage(String country, String language ) {
+        Locale locale = new Locale(country, language);    
+        appNameResourceBundle = ResourceBundle.getBundle("languages.messages", locale, new UTF8Control());
+    }
+	
 	private static void startUpApplication() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainFrame.getInstance();
 					MainFrame.getInstance().init();
 				} catch (Exception e) {
 					e.printStackTrace();

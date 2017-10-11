@@ -14,7 +14,7 @@ public class AppPanel extends JPanel {
 				 RacingGameConstants.PANEL_WIDTH, RacingGameConstants.PANEL_HEIGHT);
 		setLayout(null);
 		btnBack = new JButton("Back");
-		btnBack.setBounds(RacingGameConstants.BUTTON_POSITION_X, RacingGameConstants.BUTTON_POSITION_Y, RacingGameConstants.BUTTON_WIDTH, RacingGameConstants.BUTTON_HEIGHT);
+		btnBack.setBounds(RacingGameConstants.BTN_BACK_POSITION_X, RacingGameConstants.BTN_BACK_POSITION_Y, RacingGameConstants.BTN_BACK_WIDTH, RacingGameConstants.BTN_BACK_HEIGHT);
 		add(btnBack);
 	}
 

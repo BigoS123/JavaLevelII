@@ -93,6 +93,7 @@ public class LoginPanel extends AppPanel implements PanelView {
 		add(btnLogin);
 
 		try {
+			//TODO dopasowanie obrazka do rozmiaru okna
 			image = ImageIO.read(getClass().getResource("/img/loginScreen.png"));
 		} catch (IOException e) {
 			 e.printStackTrace();
