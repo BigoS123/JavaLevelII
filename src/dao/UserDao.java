@@ -5,20 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import database.DBConnection;
 import model.User;
-import util.MySQLAccess;
 
 public class UserDao {
 
-	private Connection connection;
-	
-	public UserDao() {
-		connection = MySQLAccess.getConnection();
-	}
-
-	public void addUser(String login, String password) {
+	public static void addUser(String login, String password) {
 		PreparedStatement preparedStatement = null;
+		Connection connection = null;
 		try {
+			connection = DBConnection.getConnection();
 			preparedStatement = connection
 					.prepareStatement("insert into user (login, password) values (?, ?)");
 
@@ -28,18 +24,20 @@ public class UserDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQLAccess.close(connection, null, preparedStatement);
+			DBConnection.close(connection, preparedStatement);
 		}
 	}
 	
 
-	public User logInUser(String login, String password) {
+	public static User logInUser(String login, String password) {
 		
 		User user  = null;
 		
 		PreparedStatement preparedStatement = null;
 		ResultSet rs = null;
+		Connection connection = null;
 		try {
+			connection = DBConnection.getConnection();
 			preparedStatement = connection
 					.prepareStatement("select * from user where login = ? and password = ?;");
 
@@ -57,7 +55,7 @@ public class UserDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			MySQLAccess.close(connection, null, preparedStatement);
+			DBConnection.close(connection, preparedStatement, rs);
 		}
 		return user;
 	}

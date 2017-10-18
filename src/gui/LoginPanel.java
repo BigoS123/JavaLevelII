@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import app.Application;
 import controller.LoginController;
 //TODO zrobic obrazki tam gdzie ich miejsca XD
 public class LoginPanel extends AppPanel implements PanelView {
@@ -42,7 +43,7 @@ public class LoginPanel extends AppPanel implements PanelView {
 		this.add(textFieldUserLogin);
 		textFieldUserLogin.setColumns(10);
 
-		lblInsertLogin = new JLabel("Login:");
+		lblInsertLogin = new JLabel(Application.appNameResourceBundle.getString("lblInsertLogin"));
 		lblInsertLogin.setForeground(new Color(0, 153, 255));
 		lblInsertLogin.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		lblInsertLogin.setBounds(245, 77, 52, 30);
@@ -84,7 +85,7 @@ public class LoginPanel extends AppPanel implements PanelView {
 		label.setBounds(44, 23, 440, 52);
 		add(label);
 
-		btnLogin = new JButton("Log in");
+		btnLogin = new JButton(Application.appNameResourceBundle.getString("btnLogin"));
 
 		btnLogin.setForeground(new Color(0, 0, 139));
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 27));

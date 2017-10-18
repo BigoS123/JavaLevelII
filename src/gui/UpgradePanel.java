@@ -32,7 +32,6 @@ private JButton btnUpgradeTyres;
 private JButton btnBuySkirts;
 private JLabel lblSetBalanceBetween;
 private JSlider slider;
-private JButton btnBack;
 
 
 	public UpgradePanel() {
@@ -94,10 +93,6 @@ private JButton btnBack;
 		slider.setBounds(228, 90, 200, 26);
 		add(slider);
 		lblSetBalanceBetween.setLabelFor(slider);
-		
-		btnBack = new JButton("Back");
-		btnBack.setBounds(5, 210, 135, 41);
-		add(btnBack);
 	}
 	public static UpgradePanel getInstance(){
 		if(instance == null){
@@ -105,12 +100,7 @@ private JButton btnBack;
 		}
 		return instance;
 	}
-	public JButton getBtnBack() {
-		return btnBack;
-	}
-	public void setBtnBack(JButton btnBack) {
-		this.btnBack = btnBack;
-	}
+
 	public JButton getBtnUpgradeEngine() {
 		return btnUpgradeEngine;
 	}

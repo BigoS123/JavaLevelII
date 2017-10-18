@@ -20,31 +20,30 @@ public class CarChoicePanel extends AppPanel implements PanelView {
 	private JRadioButton rdbtnBmw;
 	private JRadioButton rdbtnAudi;
 	private JRadioButton rdbtnBugatti;
-	private JLabel lblNewLabel;
+	private JLabel lblCarScrenTitle;
 	private JLabel lblLookOfCar;
 	private JButton btnConfirmChoice;
-	private JButton btnBackToHome;
 	
 	public CarChoicePanel() {
 		super();
 
 		
 		rdbtnBmw = new JRadioButton("BMW");
-		rdbtnBmw.setBounds(25, 198, 109, 23);
+		rdbtnBmw.setBounds(79, 556, 109, 23);
 		add(rdbtnBmw);
 		
 		rdbtnAudi = new JRadioButton("AUDI");
-		rdbtnAudi.setBounds(193, 198, 109, 23);
+		rdbtnAudi.setBounds(611, 556, 109, 23);
 		add(rdbtnAudi);
 		
 		rdbtnBugatti = new JRadioButton("BUGATTI");
-		rdbtnBugatti.setBounds(340, 198, 109, 23);
+		rdbtnBugatti.setBounds(1151, 556, 109, 23);
 		add(rdbtnBugatti);
 		
-		lblNewLabel = new JLabel("CHOSE YOUR CAR");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lblNewLabel.setBounds(79, 11, 504, 69);
-		add(lblNewLabel);
+		lblCarScrenTitle = new JLabel("CHOSE YOUR CAR");
+		lblCarScrenTitle.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblCarScrenTitle.setBounds(79, 11, 504, 69);
+		add(lblCarScrenTitle);
 
 		
 		lblLookOfCar = new JLabel("Look of car doesn't affect statistics");
@@ -52,12 +51,8 @@ public class CarChoicePanel extends AppPanel implements PanelView {
 		add(lblLookOfCar);
 		
 		btnConfirmChoice = new JButton("Confirm choice");
-		btnConfirmChoice.setBounds(309, 228, 125, 34);
+		btnConfirmChoice.setBounds(1058, 650, 202, 50);
 		add(btnConfirmChoice);
-		
-		btnBackToHome = new JButton("Back to home screen");
-		btnBackToHome.setBounds(177, 228, 125, 34);
-		add(btnBackToHome);
 		
 	}
 	public static CarChoicePanel getInstance() {
@@ -92,11 +87,11 @@ public class CarChoicePanel extends AppPanel implements PanelView {
 	}
 
 	public JLabel getLblNewLabel() {
-		return lblNewLabel;
+		return lblCarScrenTitle;
 	}
 
 	public void setLblNewLabel(JLabel lblNewLabel) {
-		this.lblNewLabel = lblNewLabel;
+		this.lblCarScrenTitle = lblNewLabel;
 	}
 
 	public JLabel getLblLookOfCar() {
@@ -115,13 +110,6 @@ public class CarChoicePanel extends AppPanel implements PanelView {
 		this.btnConfirmChoice = btnConfirmChoice;
 	}
 
-	public JButton getBtnBackToHome() {
-		return btnBackToHome;
-	}
-
-	public void setBtnBackToHome(JButton btnBackToHome) {
-		this.btnBackToHome = btnBackToHome;
-	}
 
 	@Override
 	public void initPanelView() {

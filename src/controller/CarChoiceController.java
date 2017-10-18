@@ -15,7 +15,7 @@ public class CarChoiceController implements Controller {
 	
 	@Override
 	public void initController() {
-		CarChoicePanel.getInstance().getBtnBackToHome().addActionListener(e -> backToHomePanel());
+		CarChoicePanel.getInstance().getBtnBack().addActionListener(e -> backToHomePanel());
 	}
 
 	private void backToHomePanel() {
