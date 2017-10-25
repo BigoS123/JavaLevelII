@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import app.Application;
@@ -8,13 +9,11 @@ import gui.HomePanel;
 import gui.LoginPanel;
 import gui.MainFrame;
 import model.User;
+import util.RacingGameUtil;
 
 public class LoginController implements Controller {
 
 	private static LoginController instance;
-	
-	private User user;
-	private LoginPanel loginPanel;
 
 	public LoginController() {
 		super();
@@ -25,6 +24,7 @@ public class LoginController implements Controller {
 		if(instance == null){
 
 			instance = new LoginController();
+			instance.initController();
 
 		}
 
@@ -40,13 +40,23 @@ public class LoginController implements Controller {
 
 	//TODO zrobienie logowania usera z bazy danych jesli nie ma urzytkownika albo haslo jest niepoprwane to wyswietl w konsoli komunikat
 	private void loginUser() {
-		MainFrame.getInstance().replacePanel(HomePanel.getInstance());
+		
+		LoginPanel lp = LoginPanel.getInstance();
+		User user = UserDao.logInUser(lp.getTextFieldUserLogin().getText(), (lp.getPasswordFieldUserPassword().getText()));
+		if(user==null){
+			RacingGameUtil.showErrorMessage(MainFrame.getInstance(), Application.appNameResourceBundle.getString("errorWrongLoginOrPassword"), null);
+
+		}else{
+			MainFrame.getInstance().replacePanel(HomePanel.getInstance());
+		}
 	}
 
-	//TODO dodanie przykladowych userow aut i czesci i zrobic powiazanie miedzy czesciami a samochodami
+	
 	private void addUser() {
 		LoginPanel lp = LoginPanel.getInstance();
 		UserDao.addUser(lp.getTextFieldUserLogin().getText(), (lp.getPasswordFieldUserPassword().getText()));
 	}
+	
+	
 
 }

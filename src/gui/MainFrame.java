@@ -21,11 +21,9 @@ public class MainFrame extends JFrame {
 	public static JPanel contentPane;
 
 	public MainFrame() {
-//		super(RacingGameConstants.GAME_TITLE);
 		
 		super(Application.appNameResourceBundle.getString("title"));
 		
-		//TODO tlumaczenie aplikacji
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(RacingGameConstants.FRAME_POSITION_X, RacingGameConstants.FRAME_POSITION_Y,
 				 RacingGameConstants.FRAME_WIDTH, RacingGameConstants.FRAME_HEIGHT);

@@ -2,9 +2,13 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,6 +17,7 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 
+import app.Application;
 import controller.HomeController;
 import controller.UpgradeController;
 
@@ -33,41 +38,43 @@ private JButton btnBuySkirts;
 private JLabel lblSetBalanceBetween;
 private JSlider slider;
 
+private BufferedImage image;
+
 
 	public UpgradePanel() {
 		super();
 
-		btnUpgradeEngine = new JButton("Upgrade Engine");
+		btnUpgradeEngine = new JButton(Application.appNameResourceBundle.getString("btnUpgradeEngine"));
 		btnUpgradeEngine.setBounds(5, 5, 109, 23);
 		add(btnUpgradeEngine);
 
-		btnUpgradeBody = new JButton("Reduce Body Weight");
+		btnUpgradeBody = new JButton(Application.appNameResourceBundle.getString("btnUpgradeBody"));
 		btnUpgradeBody.setBounds(119, 5, 133, 23);
 		add(btnUpgradeBody);
 
-		btnBuySpoiler = new JButton("Buy Spoiler");
+		btnBuySpoiler = new JButton(Application.appNameResourceBundle.getString("btnBuySpoiler"));
 		btnBuySpoiler.setBounds(257, 5, 85, 23);
 		add(btnBuySpoiler);
 
-		btnBuyTurbo = new JButton("Buy Turbo");
+		btnBuyTurbo = new JButton(Application.appNameResourceBundle.getString("btnBuyTurbo"));
 		btnBuyTurbo.setBounds(347, 5, 81, 23);
 		add(btnBuyTurbo);
 
-		tglbtnToggleTurbo = new JToggleButton("Toggle Turbo");
+		tglbtnToggleTurbo = new JToggleButton(Application.appNameResourceBundle.getString("tglbtnToggleTurbo"));
 		tglbtnToggleTurbo.setEnabled(false);
 		tglbtnToggleTurbo.setBackground(Color.WHITE);
 		tglbtnToggleTurbo.setBounds(45, 33, 95, 23);
 		add(tglbtnToggleTurbo);
 
-		btnUpgradeBrakes = new JButton("Upgrade Brakes");
+		btnUpgradeBrakes = new JButton(Application.appNameResourceBundle.getString("btnUpgradeBrakes"));
 		btnUpgradeBrakes.setBounds(145, 33, 109, 23);
 		add(btnUpgradeBrakes);
 
-		btnUpgradeSuspention = new JButton("Upgrade Suspention");
+		btnUpgradeSuspention = new JButton(Application.appNameResourceBundle.getString("btnUpgradeSuspention"));
 		btnUpgradeSuspention.setBounds(259, 33, 129, 23);
 		add(btnUpgradeSuspention);
 
-		btnUpgradeTyres = new JButton("Upgrade Tyres");
+		btnUpgradeTyres = new JButton(Application.appNameResourceBundle.getString("btnUpgradeTyres"));
 		btnUpgradeTyres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -75,7 +82,7 @@ private JSlider slider;
 		btnUpgradeTyres.setBounds(4, 61, 103, 23);
 		add(btnUpgradeTyres);
 
-		btnBuySkirts = new JButton("Buy Skirts");
+		btnBuySkirts = new JButton(Application.appNameResourceBundle.getString("btnBuySkirts"));
 		btnBuySkirts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -83,7 +90,7 @@ private JSlider slider;
 		btnBuySkirts.setBounds(112, 61, 79, 23);
 		add(btnBuySkirts);
 
-		lblSetBalanceBetween = new JLabel("Set Balance Between Speed and Acceleration");
+		lblSetBalanceBetween = new JLabel(Application.appNameResourceBundle.getString("lblSetBalanceBetween"));
 		lblSetBalanceBetween.setBackground(Color.ORANGE);
 		lblSetBalanceBetween.setFont(new Font("Times New Roman", Font.BOLD, 11));
 		lblSetBalanceBetween.setBounds(196, 66, 235, 13);
@@ -93,7 +100,18 @@ private JSlider slider;
 		slider.setBounds(228, 90, 200, 26);
 		add(slider);
 		lblSetBalanceBetween.setLabelFor(slider);
+		
+		try {
+			
+			image = ImageIO.read(getClass().getResource("/img/UpgradePanel.png"));
+		} catch (IOException e) {
+			 e.printStackTrace();
+		}
+
 	}
+		
+		
+	
 	public static UpgradePanel getInstance(){
 		if(instance == null){
 			instance = new UpgradePanel();
@@ -101,6 +119,12 @@ private JSlider slider;
 		return instance;
 	}
 
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g.drawImage(image, 0, 0, this);
+	}
+	
 	public JButton getBtnUpgradeEngine() {
 		return btnUpgradeEngine;
 	}

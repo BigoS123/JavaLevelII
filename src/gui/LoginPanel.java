@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 import app.Application;
 import controller.LoginController;
-//TODO zrobic obrazki tam gdzie ich miejsca XD
+
 public class LoginPanel extends AppPanel implements PanelView {
 
 	private static LoginPanel instance;
@@ -47,9 +47,7 @@ public class LoginPanel extends AppPanel implements PanelView {
 		lblInsertLogin.setForeground(new Color(0, 153, 255));
 		lblInsertLogin.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		lblInsertLogin.setBounds(245, 77, 52, 30);
-		// ImageIcon icon = new
-		// ImageIcon(this.getClass()."img/1412804549363694769.jpg");
-		// lblInsertLogin.setIcon(icon);
+
 		add(lblInsertLogin);
 
 		passwordFieldUserPassword = new JPasswordField();
@@ -58,14 +56,14 @@ public class LoginPanel extends AppPanel implements PanelView {
 		passwordFieldUserPassword.setBounds(328, 122, 171, 34);
 		add(passwordFieldUserPassword);
 
-		JLabel lblInsertPassword = new JLabel("Password:");
+		JLabel lblInsertPassword = new JLabel(Application.appNameResourceBundle.getString("lblInsertPassword"));
 		lblInsertPassword.setBackground(new Color(204, 255, 255));
 		lblInsertPassword.setForeground(new Color(0, 153, 255));
 		lblInsertPassword.setFont(new Font("Tahoma", Font.PLAIN, 19));
 		lblInsertPassword.setBounds(233, 126, 85, 30);
 		add(lblInsertPassword);
 
-		btnAddUser = new JButton("Add User");
+		btnAddUser = new JButton(Application.appNameResourceBundle.getString("btnAddUser"));
 
 		btnAddUser.setBackground(new Color(245, 255, 250));
 		btnAddUser.setForeground(new Color(0, 0, 139));
@@ -73,13 +71,13 @@ public class LoginPanel extends AppPanel implements PanelView {
 		btnAddUser.setBounds(365, 660, 171, 43);
 		add(btnAddUser);
 
-		lblWelcomeInRacing = new JLabel("Welcome in RACING GAME");
+		lblWelcomeInRacing = new JLabel(Application.appNameResourceBundle.getString("lblWelcomeInRacing"));
 		lblWelcomeInRacing.setForeground(Color.CYAN);
 		lblWelcomeInRacing.setFont(new Font("Tahoma", Font.PLAIN, 37));
 		lblWelcomeInRacing.setBounds(41, 22, 440, 52);
 		add(lblWelcomeInRacing);
 
-		JLabel label = new JLabel("Welcome in RACING GAME");
+		JLabel label = new JLabel(Application.appNameResourceBundle.getString("label"));
 		label.setForeground(Color.DARK_GRAY);
 		label.setFont(new Font("Tahoma", Font.PLAIN, 37));
 		label.setBounds(44, 23, 440, 52);
@@ -94,7 +92,6 @@ public class LoginPanel extends AppPanel implements PanelView {
 		add(btnLogin);
 
 		try {
-			//TODO dopasowanie obrazka do rozmiaru okna
 			image = ImageIO.read(getClass().getResource("/img/loginScreen.png"));
 		} catch (IOException e) {
 			 e.printStackTrace();
@@ -169,7 +166,7 @@ public class LoginPanel extends AppPanel implements PanelView {
 		// LoginPanel.getInstance().getTextFieldUserLogin().setText("halina");
 		// LoginPanel.getInstance().getPasswordFieldUserPassword().setText("halina");
 
-		LoginController.getInstance().initController();
+		LoginController.getInstance();
 
 	}
 

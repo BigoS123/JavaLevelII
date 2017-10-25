@@ -28,11 +28,28 @@ public class UserDao {
 		}
 	}
 	
+	public static void addUser(String login, String password, int coins) {
+		PreparedStatement preparedStatement = null;
+		Connection connection = null;
+		try {
+			connection = DBConnection.getConnection();
+			preparedStatement = connection
+					.prepareStatement("insert into user (login, password, coins) values (?, ?, ?)");
+
+			preparedStatement.setString(1, login);
+			preparedStatement.setString(2, password);
+			preparedStatement.setInt(3, coins);
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnection.close(connection, preparedStatement);
+		}
+	}
+	
 
 	public static User logInUser(String login, String password) {
-		
 		User user  = null;
-		
 		PreparedStatement preparedStatement = null;
 		ResultSet rs = null;
 		Connection connection = null;
@@ -50,6 +67,7 @@ public class UserDao {
 				user.setId(rs.getInt(1));
 				user.setLogin(rs.getString(2));
 				user.setPassword(rs.getString(3));
+				user.setCoins(rs.getInt(4));
 			}
 			
 		} catch (SQLException e) {

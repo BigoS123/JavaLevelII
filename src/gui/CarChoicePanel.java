@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
+import app.Application;
 import controller.CarChoiceController;
 import controller.HomeController;
 import controller.LoginController;
@@ -40,17 +41,17 @@ public class CarChoicePanel extends AppPanel implements PanelView {
 		rdbtnBugatti.setBounds(1151, 556, 109, 23);
 		add(rdbtnBugatti);
 		
-		lblCarScrenTitle = new JLabel("CHOSE YOUR CAR");
+		lblCarScrenTitle = new JLabel(Application.appNameResourceBundle.getString("lblCarScrenTitle"));
 		lblCarScrenTitle.setFont(new Font("Tahoma", Font.PLAIN, 35));
 		lblCarScrenTitle.setBounds(79, 11, 504, 69);
 		add(lblCarScrenTitle);
 
 		
-		lblLookOfCar = new JLabel("Look of car doesn't affect statistics");
+		lblLookOfCar = new JLabel(Application.appNameResourceBundle.getString("lblLookOfCar"));
 		lblLookOfCar.setBounds(79, 61, 229, 23);
 		add(lblLookOfCar);
 		
-		btnConfirmChoice = new JButton("Confirm choice");
+		btnConfirmChoice = new JButton(Application.appNameResourceBundle.getString("btnConfirmChoice"));
 		btnConfirmChoice.setBounds(1058, 650, 202, 50);
 		add(btnConfirmChoice);
 		
