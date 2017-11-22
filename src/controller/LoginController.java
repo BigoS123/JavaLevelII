@@ -38,7 +38,7 @@ public class LoginController implements Controller {
 		LoginPanel.getInstance().getBtnAddUser().addActionListener(e -> addUser());
 	}
 
-	//TODO zrobienie logowania usera z bazy danych jesli nie ma urzytkownika albo haslo jest niepoprwane to wyswietl w konsoli komunikat
+
 	private void loginUser() {
 		
 		LoginPanel lp = LoginPanel.getInstance();

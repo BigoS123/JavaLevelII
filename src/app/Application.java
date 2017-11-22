@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import dao.CarDao;
+import dao.UserDao;
 import database.DBConnection;
 import gui.MainFrame;
 import model.User;
@@ -17,6 +19,7 @@ public class Application {
 	public static void main(String[] args) {
 
 		startDataBase();
+		System.out.println(CarDao.getAllCars().size());
 		setUpApplication();
 		startUpApplication();
 
